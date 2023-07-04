@@ -15,15 +15,15 @@ export class CounterComponent implements OnInit {
   }
 
   onIncrement() {
-
+    this.counter ++;
   }
 
   onDecrement() {
-
+   this.counter --;
   }
 
   onReset() {
-
+    this.counter = 0;
   }
 
 }
