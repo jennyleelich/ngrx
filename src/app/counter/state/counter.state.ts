@@ -1,8 +1,10 @@
 export const initialState: CounterState = {
-    counter: 0
+    counter: 5,
+    channelName: 'Leela Web Dev'
 }
 
 export interface CounterState {
-    counter: number
+    counter: number;
+    channelName: string;
 }
 
