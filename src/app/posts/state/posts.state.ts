@@ -3,7 +3,7 @@ export interface PostsState {
 }
 
 export interface PostList {
-    id: string;
+    id?: string;
     title: string;
     description: string;
 }
