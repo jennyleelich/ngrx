@@ -11,7 +11,7 @@ import { getCounter } from '../state/counter.selector';
 })
 export class CounterOutputComponent {
   public counter$!: Observable<number>;
-  constructor(private store: Store<{counterReducer: CounterState}>) {
+  constructor(private store: Store<{counter: CounterState}>) {
 
   }
   ngOnInit(): void {

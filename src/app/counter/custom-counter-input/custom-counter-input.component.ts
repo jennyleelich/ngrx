@@ -9,7 +9,7 @@ import { customIncrement } from '../state/counter.action';
   styleUrls: ['./custom-counter-input.component.css']
 })
 export class CustomCounterInputComponent {
-  constructor(private store: Store<{counterReducer: CounterState}>) {
+  constructor(private store: Store<{counter: CounterState}>) {
 
   }
 public value: number = 0;
