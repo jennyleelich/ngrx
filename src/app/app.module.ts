@@ -20,13 +20,11 @@ import { PostsModule } from './posts/posts.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(AppReducer),
+    StoreModule.forRoot(),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
      // logOnly: environment.production
-    }),
-    CounterModule,
-    PostsModule
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
