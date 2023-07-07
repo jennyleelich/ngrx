@@ -4,9 +4,12 @@ import { map, mergeMap, catchError } from "rxjs/operators";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { AuthService } from "src/app/service/auth.service";
 import { EMPTY } from "rxjs";
+import { AppState } from "src/app/app-state/app.state";
+import { Store } from "@ngrx/store";
+import { setLoadingSpinner } from "src/app/shared/state/share.actions";
 @Injectable()
 export class AuthEffects{
-    constructor(private authService: AuthService, private actions$: Actions) {
+    constructor(private authService: AuthService, private actions$: Actions, private store: Store<AppState>) {
 
     }
 
@@ -30,6 +33,7 @@ export class AuthEffects{
             mergeMap(( action )=> this.authService.login(action.email,action.password)
             .pipe(
                 map(response => {
+                    this.store.dispatch(setLoadingSpinner({status:false}));
                     const user = this.authService.formatUser(response);
                     return loginSuccess({user});
                 } , 
