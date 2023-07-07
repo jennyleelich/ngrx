@@ -6,9 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AppReducer } from './app-state/app.state';
-import { CounterModule } from './counter/counter.module';
-import { PostsModule } from './posts/posts.module';
+
 
 @NgModule({
   declarations: [

@@ -12,7 +12,7 @@ const PostRoute: Routes = [
   {
     path: '',
     component: PostsListComponent,
-    children: [
+   children:[
       {
       path:'add',
       component: AddPostComponent
