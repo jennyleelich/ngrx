@@ -10,13 +10,29 @@ export class AuthEffects{
 
     }
 
+    // login$ = createEffect(():any=>{
+    //     return this.actions$
+    //     .pipe(
+    //         ofType(loginStart),
+    //         mergeMap(( action )=> this.authService.login(action.email,action.password)
+    //         .pipe(
+    //             map(response => ({type: loginSuccess, payload: this.authService.formatUser(response)}), 
+    //             catchError(()=> EMPTY))
+    //         )
+    //         )
+    //     )
+    // })
+
     login$ = createEffect(():any=>{
         return this.actions$
         .pipe(
             ofType(loginStart),
             mergeMap(( action )=> this.authService.login(action.email,action.password)
             .pipe(
-                map(response => ({type: loginSuccess, payload: response}), 
+                map(response => {
+                    const user = this.authService.formatUser(response);
+                    return loginSuccess({user});
+                } , 
                 catchError(()=> EMPTY))
             )
             )
